@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101a2b" />
+  <title>OrderLens AI | Order incident detective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-icon">O</span><span>orderlens<span class="brand-ai">.ai</span></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav active" href="/"><span>⌕</span> Investigate order</a>
+      <div class="side-label graph-label">GRAPH SYSTEM</div>
+      <div class="db-status"><span class="pulse"></span><span><b>FalkorDB</b><small id="db-state">Checking connection…</small></span></div>
+      <div class="sidebar-bottom"><div class="avatar">OL</div><span><b>OrderLens Demo</b><small>Graph Hacks MVP</small></span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><span>Order operations <span class="slash">/</span> Investigation</span><a href="http://localhost:3001" target="_blank" rel="noreferrer">Open graph console ↗</a></header>
+      <section class="content">
+        <div class="eyebrow"><span class="spark">✳</span> GRAPH-POWERED INCIDENT INTELLIGENCE</div>
+        <h1>Find the story<br />behind a <em>stuck order.</em></h1>
+        <p class="intro">Trace connected events, services, and incidents in your order graph to find a clear next step.</p>
+
+        <form id="search-form" class="search-card">
+          <label for="order-id">ORDER ID</label>
+          <div class="search-row"><span class="search-icon">⌕</span><input id="order-id" name="orderId" value="ORD-1042" autocomplete="off" spellcheck="false" /><button id="search-button" type="submit">Investigate <span>→</span></button></div>
+          <div class="search-hint">Enter an order ID or choose a demo case below.</div>
+        </form>
+
+        <section class="demo-orders" aria-labelledby="demo-title">
+          <div class="demo-heading"><h2 id="demo-title">Demo cases</h2><span id="order-count">Loading graph orders…</span></div>
+          <div id="order-list" class="order-list" aria-live="polite"></div>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+        <section id="results" class="results" hidden>
+          <div class="result-heading"><div><div class="eyebrow">INVESTIGATION RESULT</div><h2 id="result-title">Order trace</h2></div><span id="status-pill" class="status-pill">STUCK</span></div>
+          <div id="graph-path" class="graph-path"></div>
+          <p id="why-this" class="why-this"></p>
+          <div class="detail-grid">
+            <article class="detail-card"><div class="card-label">RELATED INCIDENT</div><div class="incident-line"><span class="incident-dot"></span><div><strong id="incident-id"></strong><p id="incident-text"></p></div></div><div class="severity"><span>SEVERITY</span><b id="severity"></b></div></article>
+            <article class="detail-card action-card"><div class="card-label">RECOMMENDED NEXT STEP</div><h3 id="runbook"></h3><p id="action"></p><div class="owner"><span class="owner-avatar">↗</span><span><small>RESPONSIBLE TEAM</small><b id="team"></b></span></div></article>
+          </div>
+          <div class="graph-note"><span>✳</span> This explanation was retrieved by traversing connected nodes in your FalkorDB knowledge graph.</div>
+        </section>
+
+        <footer><span>OrderLens AI</span><span>Powered by a connected order graph</span></footer>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

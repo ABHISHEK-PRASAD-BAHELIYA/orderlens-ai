@@ -1,0 +1,20 @@
+{
+  "name": "orderlens-ai",
+  "version": "1.0.0",
+  "description": "Graph-powered order incident detective for Graph Hacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["graph", "falkordb", "orders", "incident-response", "hackathon"],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "redis": "^6.3.0"
+  }
+}
